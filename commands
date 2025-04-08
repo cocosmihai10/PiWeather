@@ -1,0 +1,25 @@
+sudo systemctl start nginx
+sudo systemctl status nginx
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+
+
+db:
+	user = weatheruser
+	pass = weatherpassword
+	host = localhost
+	port = 3306
+
+
+
+
+
+
+
+
+
+
+
+Connect DB to app
+
+sudo apt install python3-pymysql
