@@ -1,0 +1,12 @@
+body {
+	background-image: url('../images/piweather_bg.png');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.card-circle {
+	width: 200px;
+	height: 200px;
+}
