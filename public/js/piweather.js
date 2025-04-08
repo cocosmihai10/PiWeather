@@ -1,7 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 	
 	displayClock();
-	displayDate();	
+	displayDate();
+	
+	//polling readings every 5 seconds
+	setInterval(fetchReadings, 5000);	
 
 	const DATA_COUNT = 8;
 	const NUMBER_CFG = {count: DATA_COUNT, min: -10, max: 50};
@@ -108,5 +111,25 @@ function displayDate(){
   var display = new Date().toLocaleString('en-US',{weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
   var clock = document.getElementById('date');
   date.innerHTML = display;
+}
+
+function fetchReadings(){
+  var url = '/?fetchReadings';
+  fetch(url)
+    .then(response => {
+      if(!response.ok) {
+        throw new Error('Network response error: ' + response.message)
+      }
+      return response.json();
+    })
+    .then(data => {
+      var liveTemperature = document.getElementById('live-temperature');
+      var liveHumidity = document.getElementById('live-humidity');
+      liveTemperature.innerHTML = data.data[0].temperature + ' °C';
+      liveHumidity.innerHTML = data.data[0].humidity + ' %';
+    })
+    .catch(error => {
+      console.log('Error fetching readings: ', error);
+    });
 }
 

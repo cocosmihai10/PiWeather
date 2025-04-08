@@ -5,6 +5,16 @@ require_once '../src/database/Database.php';
 
 $db = new Database();
 
+if(isset($_GET['fetchReadings'])) {
+	header('Content-Type: application/json');
+	echo json_encode([
+		'success' => true,
+		'message' => '',
+		'data' => $db->fetchReadings()
+	]);
+	return ;
+}
+
 $maxTemperatures = $db->getMaxReadings('temperature');
 $minTemperatures = $db->getMinReadings('temperature');
 $avgTemperatures = $db->getAvgReadings('temperature');

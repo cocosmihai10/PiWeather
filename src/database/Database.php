@@ -103,4 +103,13 @@ class Database
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 	
+	public function fetchReadings()
+	{
+		$sql = "SELECT temperature, humidity FROM readings ORDER BY created_at DESC LIMIT 1";
+		$query = $this->connection->prepare($sql);
+		$query->execute();
+		
+		return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+	
 }

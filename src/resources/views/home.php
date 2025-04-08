@@ -16,7 +16,7 @@
 				<div class="col-5 d-flex justify-content-center align-items-center">
 					<div class="card rounded-circle card-circle">
 						<div class="card-body d-flex justify-content-center align-items-center">
-							<div class="card-text fs-1">22.4 °C</div>
+							<div class="card-text fs-1" id="live-temperature"></div>
 						</div>
 					</div>
 				</div>
@@ -27,7 +27,7 @@
 				<div class="col-5 d-flex justify-content-center align-items-center">
 					<div class="card rounded-circle card-circle">
 						<div class="card-body d-flex justify-content-center align-items-center">
-							<div class="card-text fs-1">22.4 %</div>
+							<div class="card-text fs-1" id="live-humidity"></div>
 						</div>
 					</div>
 				</div>
